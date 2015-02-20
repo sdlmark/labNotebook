@@ -1,3 +1,14 @@
 20-02-2015
 ==========
+TODAY:
 - set up git lab notebook
+- set up script repository on GitHub
+- learned how to generate SSH keys!
+- wrote autobam1.py to automate conversion of SAM to BAM using samtools
+- began running autobam1.py on AF16/starAF16/alignsAF16/ @ 17:07
+
+NEXT:
+- check that bam files are OK (and that autobam1.py is OK)
+- if OK, try to run HTSeq on the bam files
+	- first don't forget to sort them (can I pipe it?)
+- make a list of commands and put them up on GitHub
