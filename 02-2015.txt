@@ -12,3 +12,23 @@ NEXT:
 - if OK, try to run HTSeq on the bam files
 	- first don't forget to sort them (can I pipe it?)
 - make a list of commands and put them up on GitHub
+
+
+21-02-2015
+==========
+TODAY:
+- generated ssh key for MBA, added key to GitHub
+- created a file "commandline.txt" to store commands used
+- pushed commandline.txt to scripts repository on GitHub
+- checked bam files converted yesterday-->looks good!
+
+NEXT: 
+- sort bam files (using bash?) by name (-no)
+- do test run of HTSeq on one bam file; look at count table
+- ask Wei about generating err files
+- keep updating commandline.txt
+- put useable scripts up on GitHub 
+
+FUTURE:
+- ask Wei to look at some of my auto scripts 
+
