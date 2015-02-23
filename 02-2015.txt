@@ -32,3 +32,39 @@ NEXT:
 FUTURE:
 - ask Wei to look at some of my auto scripts 
 
+
+23-02-2015
+==========
+TODAY:
+- learned about stdout: what prints to the screen
+	> filename.txt == 1>logfile.log
+	- i.e. the "1" is implied for most commands
+- learned about error log file: 2>errorname.err
+	- saves error messages to file
+- tried to run samtools sort:
+	- don't use -o option unless stdout is desired
+- ran samtools sort again; found proper command!
+	$ samtools sort -n AF14-1.Aligned.bam AF14-1.sorted 2>AF14-1.sorting.err
+- starting to understand more about command line
+	- ex. what can be piped and what can't
+- running HTSeq on AF14-1.sorted.bam (17:40S):
+	htseq-count
+	--format=bam
+	--type=exon
+	--idattr=Parent
+	--mode=intersection-nonempty
+	AF14-1.sorted.bam
+	~/c_briggsae.PRHNA10731.WS246.annotations.gff3
+	> AF14-1.count.test
+	2> AF14-1.count.err
+- updated commandline.txt with working samtools commands
+
+NEXT:
+- check results of HTSeq run on AF14-1.sorted.bam
+- tweak parameters (ex. try --type=mRNA instead)
+- research DFE, log-normal distribution
+- do bash scripting tutorial-->should help automation of command line tasks
+
+FUTURE:
+- assertions in python
+
