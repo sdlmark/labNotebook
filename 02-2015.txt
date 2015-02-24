@@ -125,3 +125,5 @@ MEETING:
 NEXT:
 - run autobam1.py on other folders/write a bash script for the same thing
 - write a bash script for automating HTSeq with optimal parameters (& homemade .gff3?)
+- figure out why so many 0 read counts!
+- try another homemade gff that just lacks "history"
