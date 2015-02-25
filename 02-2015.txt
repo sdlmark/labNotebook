@@ -128,3 +128,32 @@ NEXT:
 - figure out why so many 0 read counts!
 - try another homemade gff that just lacks "history"
 - read up on functional descriptions of annotations on wormbase.org
+
+
+25-02-2015
+==========
+TODAY:
+- Emily's seminar-->associating SNPs with eQTLs
+- research strandedness:
+	- sense = mRNA transcript that matches a DNA sequence 
+		- it originates from the opposite DNA strand
+	- antisense = mRNA transcript that is complementary to a DNA sequence
+		- it originates from the same DNA strand
+	- so: if transcripts match the DNA, they come from the opposite strand
+		- i.e. the gene is on the opposite strand
+	- if RNA-seq is not stranded:
+		- both sense and antisense transcripts will map to the same
+		  location in the genome
+	- if RNA-seq is stranded:
+		- antisense transcripts will map to one strand and sense
+		  transcripts will map to the other
+	- why bother?
+		- identify antisense transcripts
+		- important for small RNAs (ex mature miRNA comes from one
+		  arm)
+		- info about overlapping genes (ex. starts on one strand then
+		  starts on opposite strand)
+
+NEXT:
+- figure out the 0 count problem
+- write bash scripts to automate (see 24-02-2015)
