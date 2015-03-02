@@ -11,4 +11,8 @@ TODAY:
 	--mode=intersection-nonempty
 	--idattr=Parent
 	--type=exon
-
+- continued with bash script tutorial
+	- how to get input data from user:
+		- command line argument (best for most scenarios-->can see in history
+		- read in (best for sensitive info like passwords; not saved)
+		- redirected via STDIN (for piping, processing data)
