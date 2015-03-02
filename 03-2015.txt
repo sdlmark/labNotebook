@@ -29,3 +29,10 @@ TODAY:
 		- command line argument (best for most scenarios-->can see in history
 		- read -p (good for sensitive info; not stored)
 		- redirected via STDIN (for piping, processing data)
+
+NEXT:
+- fill out countNotes.txt with results from new tests with different
+  parameters
+- continue with bash script tutorial
+- make a bash script to automate sorting bam files
+- read Git tutorial suggested by Jeremy
