@@ -11,8 +11,21 @@ TODAY:
 	--mode=intersection-nonempty
 	--idattr=Parent
 	--type=exon
+	AF20.sorted.bam
+	~/c_briggsae.WBonly.gff3 
+	> AF20-2.countWB.test
+	2>AF20.2.countWB.err
+	** yields 11769 genes with a non-zero count**
+	** compare to same parameters on AF14-1: yielded 11496**
+	** "Pseudogene" matches at beginning**
+- made file countNotes.txt to keep track of parameters and results
+- there are ~2.0*10^4 genes in C. briggsae
+- it seems that many, many reads are not being counted...not sure why
+	- try to find parameters that minimize the number of reads with
+	  no_feature
+	- perhaps try different modes (i.e. union, intersection-empty)
 - continued with bash script tutorial
 	- how to get input data from user:
 		- command line argument (best for most scenarios-->can see in history
-		- read in (best for sensitive info like passwords; not saved)
+		- read -p (good for sensitive info; not stored)
 		- redirected via STDIN (for piping, processing data)
