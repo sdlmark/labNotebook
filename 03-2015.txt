@@ -1,0 +1,14 @@
+02-03-2015
+==========
+
+TODAY:
+- try running HTSeq with parameters that make sense on an AF20 sample
+	- first make a sorted bam file for AF20-2.Aligned.bam
+		$ samtools sort -n AF20-2.Aligned.bam AF20-2.sorted 2>AF20-2.sorting.err
+	$ htseq-count
+	--format=bam
+	--stranded=yes
+	--mode=intersection-nonempty
+	--idattr=Parent
+	--type=exon
+
