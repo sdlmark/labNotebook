@@ -36,3 +36,17 @@ NEXT:
 - continue with bash script tutorial
 - make a bash script to automate sorting bam files
 - read Git tutorial suggested by Jeremy
+
+
+03-03-2015
+==========
+
+TODAY:
+- looked at preliminary data for different parameters in HTSeq (using R)
+	- looks like data might not be stranded after all...
+- meeting with Asher
+
+
+NEXT:
+- write bash script to automate 1. sorting bam files, 2. htseq 
+- look at SAM files in IGV to determine strandedness...
