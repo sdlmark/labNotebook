@@ -2,7 +2,7 @@ AF14-1 exon Parent yes intersection-nonempty standard 40660 4730 32679554 134485
 AF14-1 exon Parent reverse intersection-nonempty standard 40660 15028 2903725 26018579 3412645 36538117
 AF14-1 exon Parent yes intersection-nonempty WBonly 23298 11496 32690665 313 3412645 36538117
 AF14-1 CDS ID yes intersection-nonempty WBonly 21868 11367 32695547 307 3412645 36538117
-AF20-2 exon Parent yes intersection-nonempty WBonly 23298 11769 63575715 573 595938 70230817
-AF20-2 mRNA ID yes intersection-nonempty WBonly
-AF20-2 exon Parent yes union WBonly
-AF20-2 exon Parent no intersection-nonempty WBonly 
+AF20-2 exon Parent yes intersection-nonempty WBonly 23298 11769 63575715 573 5959381 70230817
+AF20-2 mRNA ID yes intersection-nonempty WBonly 21868 12519 62771484 10241 5959381 70230817
+AF20-2 exon Parent yes union WBonly 23298 11756 63570198 6161 5959381 70230817
+AF20-2 exon Parent no intersection-nonempty WBonly 23298 19212 5469192 256544 5959381 70230817 

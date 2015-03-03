@@ -100,10 +100,12 @@ TODAY:
 	--idattr=Parent
 	--type=exon
 	AF14-1.sorted.bam
+	~/c_briggsae.WBonly.gff3
 	> AF14-1.countWB.test
 	2> AF14-1.countWB.err
 	** these parameters are worse :(**
-- redoing HTSeq with WormBase exons only .gff3 [16:54S]
+- redoing HTSeq with WormBase exons only .gff3; collecting CDS rather than
+  exons [16:54S]
 	$ htseq-count
 	--format=bam
 	--stranded=yes
@@ -111,6 +113,7 @@ TODAY:
 	--idattr=ID
 	--type=CDS
 	AF14-1.sorted.bam
+	~/c_briggsae.WBonly.gff3
 	> AF14-1.countWBcds.test
 	2> AF14-1.countWBcds.err
 	** still quite low... new strategy required!**
