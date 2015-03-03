@@ -1,0 +1,9 @@
+"sample" "type" "feature" "stranded" "mode" "gff" "genes" "nonzero" "no_feature" "ambiguous" "not_unique" "total_reads" "prop_counted" "prop_expr"
+"1" "AF14-1" "exon" "Parent" "yes" "intersection-nonempty" "standard" 40660 4730 32679554 134485 3412645 36538117 0.008523509845896 0.116330545991146
+"2" "AF14-1" "exon" "Parent" "reverse" "intersection-nonempty" "standard" 40660 15028 2903725 26018579 3412645 36538117 0.115035156299926 0.369601574028529
+"3" "AF14-1" "exon" "Parent" "yes" "intersection-nonempty" "WBonly" 23298 11496 32690665 313 3412645 36538117 0.0118915268676818 0.493432912696369
+"4" "AF14-1" "CDS" "ID" "yes" "intersection-nonempty" "WBonly" 21868 11367 32695547 307 3412645 36538117 0.0117580771882689 0.519800621913298
+"5" "AF20-2" "exon" "Parent" "yes" "intersection-nonempty" "WBonly" 23298 11769 63575715 573 5959381 70230817 0.00989804803210534 0.50515065670873
+"6" "AF20-2" "mRNA" "ID" "yes" "intersection-nonempty" "WBonly" 21868 12519 62771484 10241 5959381 70230817 0.0212116427465168 0.572480336564844
+"7" "AF20-2" "exon" "Parent" "yes" "union" "WBonly" 23298 11756 63570198 6161 5959381 70230817 0.00989703707989044 0.504592668898618
+"8" "AF20-2" "exon" "Parent" "no" "intersection-nonempty" "WBonly" 23298 19212 5469192 256544 5959381 70230817 0.83361838151477 0.824620139067731
