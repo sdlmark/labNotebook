@@ -44,9 +44,53 @@ NEXT:
 TODAY:
 - looked at preliminary data for different parameters in HTSeq (using R)
 	- looks like data might not be stranded after all...
-- meeting with Asher
+- Meeting:
+	- receipts say that the reads are stranded...
+	- but counts for stranded runs seem off...
+	- find out what's going on! are reads stranded? what is HTSeq doing?!
 
+
+04-03-2015
+==========
+
+TODAY:
+- figure out whether the reads are stranded
+- figure out what is going on with HTSeq--how does it actually work?
+- doesn't look like STAR has any options for strandedness (not an issue)
+- trying to look at an alignment in IGV...
+	- only takes indexed BAM files?
+	- BAM files can only be indexed when not sorted by name?
+- Wei thinks that most of the reads should be reversed
+	- due to RT-PCR
+	- try --stranded=reverse again, but with an exon-only gff
+		- much more success with this!
+- the high degree of ambiguity may be due to genes that use the same exons
+	- denoted in the gff as "CBG:12345a" etc.
+	- running HTSeq again with these exons omitted to see how much these
+	  are biasing the ambiguity count
+		- result decreases ambiguity, and in the case of the forward
+		  stranded condition, greatly! (only 14 ambiguous counts!)
+	- however, can't leave them out completely!
+		- at first I thought that it was randomly assigning the most
+		  reads to the "a" variant, but this is not the case
+		- some transcripts are very different (CBG19793) and only have
+		  a few exons in common
+		- so I'm not sure what the benefit to leaving them out might
+		  be...
+		- 889 exons belong to more than one gene
+		- 122448 exons are not shared
+- also trying mRNA + reverse
+	- perhaps this can avoid the ambiguity problem since they seem unique
+	- there are some variants, but fewer in the mRNA + forward counts
+	- looks good; about as good as exon + reverse
+	- ambiguity might just be proportional and scale with mRNA...
+	- looks like 83 mRNA transcripts have more than one variant
 
 NEXT:
-- write bash script to automate 1. sorting bam files, 2. htseq 
-- look at SAM files in IGV to determine strandedness...
+- look at genes that were counted in the mRNA + reverse condition
+- try to figure out which would be the best parameters to use, which make the
+  most sense
+- continue with bash script tutorials
+- talk to Asher about summer student
+- email links to summer student
+
