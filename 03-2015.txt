@@ -94,3 +94,26 @@ NEXT:
 - talk to Asher about summer student
 - email links to summer student
 
+
+05-03-2015
+==========
+
+TODAY:
+- Wei made another gff that ignores splicing variants
+- said it was not a good idea to use mRNA only...not completely sure why
+- seems acceptable to run exon + reverse with WBexon_only.gff3
+- write a bash script that automates that
+- trying to pipe samtools stdout to htseq so that I don't have to create extra
+  sorted files (and store them)
+	- doesn't appear to work...the temporary BAM files don't merge
+	- will probably have to sort them separately
+- working on making a bash script to automate 
+	- learned how to iterate through files in a folder
+	#!/bin/bash
+	folder=$1
+	for file in $folder; do echo $file*; done
+
+NEXT:
+- finish bash script for automating samtools sort -n
+- run said script
+- start bash script for automating htseq with exon + reverse
