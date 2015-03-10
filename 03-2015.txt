@@ -117,3 +117,38 @@ NEXT:
 - finish bash script for automating samtools sort -n
 - run said script
 - start bash script for automating htseq with exon + reverse
+
+
+10-03-2015
+==========
+
+TODAY:
+- prepare for meeting
+	- what have I done so far regarding HTSeq?
+- email H regarding Linux emulator
+- compare exon-only reverse with exon-only not stranded
+	- same genes being expressed? 
+	- same genes being expressed to same degree?
+	- perhaps try to concatenate into one file that you can look at in R
+
+MEETING:
+- go with reverse/not-stranded with exon-only gff
+- look into parallelization
+	- package for python/bash?
+	- run several files through the same step at the same time
+- Ne is basically a measure of the potential strength of drift
+- classical pop gen assumes that any site is only biallelic
+	- i.e. one allele is the mutant and the other is ancestral
+	- this is also conditional on an infinite-sites model (each site can
+	  only experience one mutation)
+- triallelic sites are rare, but exist
+	- their presence depends on either a high mutation rate or a large Ne
+	  (or both)
+- continue to think about why reverse while moving on with HTSeq
+
+NEXT:
+- compare exon-only reverse with exon-only not stranded; look for expression
+- email H regarding Linux emulator
+- bash scripting
+- python parallelization
+	- ask Wei?
