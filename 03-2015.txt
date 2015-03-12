@@ -152,3 +152,67 @@ NEXT:
 - bash scripting
 - python parallelization
 	- ask Wei?
+
+
+11-03-2015
+==========
+
+TODAY:
+- compare exon-only reverse & exon-only not stranded
+- find Linux emulator for H
+- begin bash script for automating samtools sort
+- do SWC homework
+
+NOTES:
+- seems to be more variation for Pseudogenes
+- counts for some exons more variable than others
+	- CBG00001: NS=968, Rev=970
+		- exon has 2 copies; both on + strand
+	- CBG00003: NS=205, Rev=206
+		- exon has 5 copies; all on + strand
+	- CBG00015: NS=24, Rev=8
+		- exon has 3 copies; all on - strand
+	- CBG00036: NS=70, Rev=62
+		- exon has 7 copies; all on + strand
+- concatenate files, search for exons that have large difference in count
+	- are they all on - strand?
+- simple commands to make table:
+	- concatenate files by column:
+		$ paste file1.txt file2.txt > newfile.txt
+	- remove 3rd column from concatenated file:
+		$ cut -f1,2,4 newfile.txt > cutfile.txt
+	- remove last 5 lines from cut file:
+		$ head -n -5 cutfile.txt > tablefile.txt
+- 2028 exons have a count difference greater than 10 between NS and Rev
+	- list in bigdiff.txt
+- 1912 exons have a greater than 10 counts in NS than Rev
+- find out what strand these exons are on...
+- FYI exon list is identical for NS and Rev (23298) 
+- made a bash script (~/scripts/bashtest.sh) for sorting bam files using
+  samtools
+	- started running it on ~/AF16/starAF16/alignsAF16/bam/ @ 16:09
+
+
+12-03-2015
+==========
+
+TODAY:
+- sorted bam files from yesterday's script look good
+- check out exons that have a large difference in non-stranded vs. reverse
+- start writing bash script for automating HTSeq
+	- non-stranded or reverse? what explains this?
+
+NOTES:
+- finished a potentially working copy of autohtseq.sh that should be ready to
+  run
+- determined strandedness of exons with big differences (strandtest.sh)
+	- mix of - and +
+
+NEXT:
+- quantify how many are + and how many are -; how many exons they have
+- look at these exons on WormBase
+	- any unusual characteristics?
+	- any commonalities?
+- once satisfied about non-stranded/reverse-stranded situation, run
+  autohtseq.sh
+- run the sorting script on HK104, ED3092
