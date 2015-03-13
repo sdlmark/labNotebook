@@ -216,3 +216,29 @@ NEXT:
 - once satisfied about non-stranded/reverse-stranded situation, run
   autohtseq.sh
 - run the sorting script on HK104, ED3092
+
+
+13-03-2015
+==========
+
+TODAY:
+- wrote autobam.sh to automate conversion of SAM to BAM files
+	- running it on HK104 and ED3092 aligns
+	- finished converting this afternoon
+- tried to write a script to quantify exons and orientation...
+	- thinking perhaps it would be better to start with a better data file
+	  format
+	- otherwise, might try reading lines into a single array to make it
+	  easier to work with
+	- currently, the problem is trying to iterate between exonIDs rather
+	  than one line at a time
+- fixed the above problem by adjusting strandtest.sh
+	- made a functional copy of strandsort.py
+	- desired version of data file is in /sorttest/diffexondircount.txt
+		- gives gene name, orientation, exon count
+- there are roughly equal numbers of +/- genes that show a big difference
+  between NS and Rev (977/1049)
+
+NEXT:
+- figure out whether to use reverse or non-stranded in HTSeq, depending on
+  this new info
