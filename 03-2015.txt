@@ -242,3 +242,51 @@ TODAY:
 NEXT:
 - figure out whether to use reverse or non-stranded in HTSeq, depending on
   this new info
+
+
+16-03-2015
+==========
+
+TODAY:
+- figure out whether to use non-stranded or reverse
+	- look at stats for exons with large count differences
+	- think about what makes the most sense...
+	- ask W/confirm with him
+- start running autohtseq on all strains
+- whoops, HK and ED have been converted to BAM but have not been sorted
+	- began at ~14:00
+- aim to finish running HTSeq by tomorrow morning to be able to look at them
+  tomorrow
+
+NOTES:
+- talked to R about mRNA folding--> apparently it does!
+	- apparently, this is part of what makes identifying miRNAs so hard
+	- suggested I check the gff for miRNA annotation
+	- learned about mirtrons: miRNAs that take up a whole intron
+	- suggested I think more about the questions I want to answer with the
+	  data
+- there are annotations for miRNA, but no other small RNA...
+	- will have to look at some papers, ex. Shi et al. to see how they did
+	  it
+- thought more about strandedness, etc.
+	- posted on SeqAnswers; quick response!
+	- wondering if maybe they just chose the strand that was selected for
+	  amplification was the reverse
+	- have better understanding of forward vs. reverse genes
+		- a gene is considered to be '+' if its pre-mRNA sequence is
+		  identical to the forward/non-coding strand
+			- it is '+' because it is SENSE to the forward strand
+		- a gene is considered to be '-' if its pre-mRNA sequence is
+		  identical to the reverse complement/template/coding strand
+			- it is '-' because it is ANTISENSE to the forward
+			  strand
+- based on the fact that the SeqAnswers person said that strandedness
+  reveals overlapping genes, I think that the genes that show big differences
+between NS and Rev may be overlapping
+	- might be interesting to check...
+	- sorted according to difference, checked a few
+	- some are located in regions with overlapping genes
+	- some are located very close to other genes
+	- some are just one gene but have huge exons??
+	- one very cool one: CBG08438, CBG08439, CBG08436
+		- last two are located in introns of first on opposite strand!
