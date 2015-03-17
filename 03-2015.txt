@@ -290,3 +290,21 @@ between NS and Rev may be overlapping
 	- some are just one gene but have huge exons??
 	- one very cool one: CBG08438, CBG08439, CBG08436
 		- last two are located in introns of first on opposite strand!
+
+
+17-03-2015
+==========
+
+TODAY:
+- respond on SeqAnswers
+- yesterday: finished running autohtseq.sh on all strains & temps
+	- sort counts into tables (write bash script?)
+- prepare for meeting with A
+- ask W again about Illumina stranded library protocol
+- wrote makecounttable.R to make a DESeq-appropriate count table
+
+NEXT:
+- do DESeq tutorial on BioconductR website
+- read small RNA paper?
+- read more about regulation of gene expression
+
