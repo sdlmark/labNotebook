@@ -308,3 +308,16 @@ NEXT:
 - read small RNA paper?
 - read more about regulation of gene expression
 
+
+
+20-03-2015
+==========
+
+TODAY:
+- looking at DESeq2 tutorial
+	- ask W to install Rsamtools and GenomicFeatures libraries
+	- apparently you can run things in parallel? several tutorials online
+	- might want to talk to Y about DESeq2
+- ask W how to get latest version of R on local computer (want to use Rstudio
+  for plots)
+	- tried to add cran mirror to the sources list but was denied :(
