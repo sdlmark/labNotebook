@@ -7,6 +7,7 @@ AF14-1 exon Parent reverse intersection-nonempty WBexononly 23298 19221 3116369 
 AF14-1 exon Parent reverse intersection-nonempty WBnodouble 23215 19183 3311924 4985 3412645 36538117
 AF14-1 exon Parent yes intersection-nonempty WBnodouble 23215 11481 32691092 14 3412645 36538117
 AF14-1 mRNA ID reverse intersection-nonempty WBonly 21868 18972 2905150 271224 3412645 36538117 
+AF14-1 exon Parent reverse intersection-nonempty WBnoalt 23249 19216 3116054 4985 3412645 36538117
 AF20-2 exon Parent yes intersection-nonempty WBonly 23298 11769 63575715 573 5959381 70230817
 AF20-2 mRNA ID yes intersection-nonempty WBonly 21868 12519 62771484 10241 5959381 70230817
 AF20-2 exon Parent yes union WBonly 23298 11756 63570198 6161 5959381 70230817

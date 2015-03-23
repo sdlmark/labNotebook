@@ -94,3 +94,230 @@ NEXT:
 - talk to Asher about summer student
 - email links to summer student
 
+
+05-03-2015
+==========
+
+TODAY:
+- Wei made another gff that ignores splicing variants
+- said it was not a good idea to use mRNA only...not completely sure why
+- seems acceptable to run exon + reverse with WBexon_only.gff3
+- write a bash script that automates that
+- trying to pipe samtools stdout to htseq so that I don't have to create extra
+  sorted files (and store them)
+	- doesn't appear to work...the temporary BAM files don't merge
+	- will probably have to sort them separately
+- working on making a bash script to automate 
+	- learned how to iterate through files in a folder
+	#!/bin/bash
+	folder=$1
+	for file in $folder; do echo $file*; done
+
+NEXT:
+- finish bash script for automating samtools sort -n
+- run said script
+- start bash script for automating htseq with exon + reverse
+
+
+10-03-2015
+==========
+
+TODAY:
+- prepare for meeting
+	- what have I done so far regarding HTSeq?
+- email H regarding Linux emulator
+- compare exon-only reverse with exon-only not stranded
+	- same genes being expressed? 
+	- same genes being expressed to same degree?
+	- perhaps try to concatenate into one file that you can look at in R
+
+MEETING:
+- go with reverse/not-stranded with exon-only gff
+- look into parallelization
+	- package for python/bash?
+	- run several files through the same step at the same time
+- Ne is basically a measure of the potential strength of drift
+- classical pop gen assumes that any site is only biallelic
+	- i.e. one allele is the mutant and the other is ancestral
+	- this is also conditional on an infinite-sites model (each site can
+	  only experience one mutation)
+- triallelic sites are rare, but exist
+	- their presence depends on either a high mutation rate or a large Ne
+	  (or both)
+- continue to think about why reverse while moving on with HTSeq
+
+NEXT:
+- compare exon-only reverse with exon-only not stranded; look for expression
+- email H regarding Linux emulator
+- bash scripting
+- python parallelization
+	- ask Wei?
+
+
+11-03-2015
+==========
+
+TODAY:
+- compare exon-only reverse & exon-only not stranded
+- find Linux emulator for H
+- begin bash script for automating samtools sort
+- do SWC homework
+
+NOTES:
+- seems to be more variation for Pseudogenes
+- counts for some exons more variable than others
+	- CBG00001: NS=968, Rev=970
+		- exon has 2 copies; both on + strand
+	- CBG00003: NS=205, Rev=206
+		- exon has 5 copies; all on + strand
+	- CBG00015: NS=24, Rev=8
+		- exon has 3 copies; all on - strand
+	- CBG00036: NS=70, Rev=62
+		- exon has 7 copies; all on + strand
+- concatenate files, search for exons that have large difference in count
+	- are they all on - strand?
+- simple commands to make table:
+	- concatenate files by column:
+		$ paste file1.txt file2.txt > newfile.txt
+	- remove 3rd column from concatenated file:
+		$ cut -f1,2,4 newfile.txt > cutfile.txt
+	- remove last 5 lines from cut file:
+		$ head -n -5 cutfile.txt > tablefile.txt
+- 2028 exons have a count difference greater than 10 between NS and Rev
+	- list in bigdiff.txt
+- 1912 exons have a greater than 10 counts in NS than Rev
+- find out what strand these exons are on...
+- FYI exon list is identical for NS and Rev (23298) 
+- made a bash script (~/scripts/bashtest.sh) for sorting bam files using
+  samtools
+	- started running it on ~/AF16/starAF16/alignsAF16/bam/ @ 16:09
+
+
+12-03-2015
+==========
+
+TODAY:
+- sorted bam files from yesterday's script look good
+- check out exons that have a large difference in non-stranded vs. reverse
+- start writing bash script for automating HTSeq
+	- non-stranded or reverse? what explains this?
+
+NOTES:
+- finished a potentially working copy of autohtseq.sh that should be ready to
+  run
+- determined strandedness of exons with big differences (strandtest.sh)
+	- mix of - and +
+
+NEXT:
+- quantify how many are + and how many are -; how many exons they have
+- look at these exons on WormBase
+	- any unusual characteristics?
+	- any commonalities?
+- once satisfied about non-stranded/reverse-stranded situation, run
+  autohtseq.sh
+- run the sorting script on HK104, ED3092
+
+
+13-03-2015
+==========
+
+TODAY:
+- wrote autobam.sh to automate conversion of SAM to BAM files
+	- running it on HK104 and ED3092 aligns
+	- finished converting this afternoon
+- tried to write a script to quantify exons and orientation...
+	- thinking perhaps it would be better to start with a better data file
+	  format
+	- otherwise, might try reading lines into a single array to make it
+	  easier to work with
+	- currently, the problem is trying to iterate between exonIDs rather
+	  than one line at a time
+- fixed the above problem by adjusting strandtest.sh
+	- made a functional copy of strandsort.py
+	- desired version of data file is in /sorttest/diffexondircount.txt
+		- gives gene name, orientation, exon count
+- there are roughly equal numbers of +/- genes that show a big difference
+  between NS and Rev (977/1049)
+
+NEXT:
+- figure out whether to use reverse or non-stranded in HTSeq, depending on
+  this new info
+
+
+16-03-2015
+==========
+
+TODAY:
+- figure out whether to use non-stranded or reverse
+	- look at stats for exons with large count differences
+	- think about what makes the most sense...
+	- ask W/confirm with him
+- start running autohtseq on all strains
+- whoops, HK and ED have been converted to BAM but have not been sorted
+	- began at ~14:00
+- aim to finish running HTSeq by tomorrow morning to be able to look at them
+  tomorrow
+
+NOTES:
+- talked to R about mRNA folding--> apparently it does!
+	- apparently, this is part of what makes identifying miRNAs so hard
+	- suggested I check the gff for miRNA annotation
+	- learned about mirtrons: miRNAs that take up a whole intron
+	- suggested I think more about the questions I want to answer with the
+	  data
+- there are annotations for miRNA, but no other small RNA...
+	- will have to look at some papers, ex. Shi et al. to see how they did
+	  it
+- thought more about strandedness, etc.
+	- posted on SeqAnswers; quick response!
+	- wondering if maybe they just chose the strand that was selected for
+	  amplification was the reverse
+	- have better understanding of forward vs. reverse genes
+		- a gene is considered to be '+' if its pre-mRNA sequence is
+		  identical to the forward/non-coding strand
+			- it is '+' because it is SENSE to the forward strand
+		- a gene is considered to be '-' if its pre-mRNA sequence is
+		  identical to the reverse complement/template/coding strand
+			- it is '-' because it is ANTISENSE to the forward
+			  strand
+- based on the fact that the SeqAnswers person said that strandedness
+  reveals overlapping genes, I think that the genes that show big differences
+between NS and Rev may be overlapping
+	- might be interesting to check...
+	- sorted according to difference, checked a few
+	- some are located in regions with overlapping genes
+	- some are located very close to other genes
+	- some are just one gene but have huge exons??
+	- one very cool one: CBG08438, CBG08439, CBG08436
+		- last two are located in introns of first on opposite strand!
+
+
+17-03-2015
+==========
+
+TODAY:
+- respond on SeqAnswers
+- yesterday: finished running autohtseq.sh on all strains & temps
+	- sort counts into tables (write bash script?)
+- prepare for meeting with A
+- ask W again about Illumina stranded library protocol
+- wrote makecounttable.R to make a DESeq-appropriate count table
+
+NEXT:
+- do DESeq tutorial on BioconductR website
+- read small RNA paper?
+- read more about regulation of gene expression
+
+
+
+20-03-2015
+==========
+
+TODAY:
+- looking at DESeq2 tutorial
+	- ask W to install Rsamtools and GenomicFeatures libraries
+	- apparently you can run things in parallel? several tutorials online
+	- might want to talk to Y about DESeq2
+- ask W how to get latest version of R on local computer (want to use Rstudio
+  for plots)
+	- tried to add cran mirror to the sources list but was denied :(
