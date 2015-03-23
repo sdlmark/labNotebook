@@ -327,6 +327,29 @@ TODAY:
 ==========
 
 TODAY:
-- find out how to update R on work machine 
+- find out how to update R on work machine
+	- got help from W
+	- in future, use: sudo apt-get install <program_name>
+	- for R: sudo apt-get install r-base
+	- no need to add to sources.list if you just want a one-time update 
 - continue with DESeq2 tutorial in Rstudio--> for plotting
+	- also some problems installing some DESeq packages
+	- W updated xml2 (another type of rich text format)
+	- "GenomicFeatures" package still doesn't work...
+	- managed to get some plots going from tutorial
+	- need to read tutorial in more detail, esp. "Starting from Count Matrices"
+	- need to read explanatory document
 - think about Atwood talk
+	- perhaps start from small RNAs...
+	- thoughts in AtwoodTalkScrap.txt
+- register for Math BioStats Bootcamp
+
+NEXT:
+- get ready for meeting with A
+- reread tutorial starting from part about count matrices
+- read DESeq2 explanatory document
+- read more about small RNAs
+- register for Math BioStats Bootcamp on Coursera
+- think more about Atwood blurb
+- 
+
