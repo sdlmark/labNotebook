@@ -321,3 +321,12 @@ TODAY:
 - ask W how to get latest version of R on local computer (want to use Rstudio
   for plots)
 	- tried to add cran mirror to the sources list but was denied :(
+
+
+23-03-2015
+==========
+
+TODAY:
+- find out how to update R on work machine 
+- continue with DESeq2 tutorial in Rstudio--> for plotting
+- think about Atwood talk
