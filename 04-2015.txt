@@ -1,0 +1,26 @@
+01-04-2015
+==========
+
+TODAY:
+- finish DESeq tutorial
+- make metadata table
+- start looking at our data!
+- prep for meeting
+- MBSB lectures 3&4
+- DESeq workflow mind map
+- download and go over 220 slides
+
+NOTES:
+- tried to write a shell script for making metadata table
+- using cut, sed, and paste turned out to be a better solution
+	ex. cut -f1 -d- samplelist.file |
+	sed -E 's/[0-9]+//' > strainlist.file
+	- this creates a list of strains only
+	- NB: when using sed with MacOSX, use -E instead of -r with sed
+		- -r in linux turns on extended regex
+
+NEXT:
+- fix count table for mRNA in DESeq
+- continue with blurb thoughts
+- MBSB lectures 3&4
+- maybe start with DESeq workflow map

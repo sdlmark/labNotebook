@@ -351,5 +351,19 @@ NEXT:
 - read more about small RNAs
 - register for Math BioStats Bootcamp on Coursera
 - think more about Atwood blurb
-- 
 
+
+31-03-2015
+==========
+
+TODAY:
+- went through DESeq tutorial up to "Independent Filtering..."
+- relevant code is stored in DESeqTutorial1.R
+- watched lectures 1&2 from MBSB Module 1
+	- notes in MBSBnotes.txt
+
+NEXT:
+- finish DESeq tutorial
+- make metadata table (probably with awk)
+- MBSB lectures 3&4
+- blurb thoughts
