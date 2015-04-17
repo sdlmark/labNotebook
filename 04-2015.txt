@@ -35,3 +35,16 @@ TODAY:
 	- also tried strain & temp & replicate as variables
 	- no DE seen when replicate included-->good sign
 - went through DESeq2 tutorial up to end of pg. 10 ("identify()")
+
+
+17-04-2015
+==========
+
+TODAY:
+- went through multi-factor section in DESeq2 manual
+	- applied it to my data
+	- the help page for "results" is especially helpful
+	- changed temp and rep to factors from integers
+	- resultsNames() shows all levels for comparison
+	- to indicate an interaction, use ':' 
+		> design(dds) = ~ group + condition + group:condition
