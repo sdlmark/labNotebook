@@ -23,4 +23,42 @@ NEXT:
 - fix count table for mRNA in DESeq
 - continue with blurb thoughts
 - MBSB lectures 3&4
-- maybe start with DESeq workflow map
+- maybe start with DESeq workflow map 
+
+
+30-04-2015
+==========
+
+UPDATE:
+- continued working with DESeq2, generated some plots
+- however, looks like it is not good with more complicated designs
+- will now try edgeR
+- also signed up for conference
+
+TODAY:
+- read a bit about edgeR
+- learned some stats, signed up for a stats with R course on edX
+- looked at JW document
+- had variant calling tutorial 
+	- should prep files with PICARD
+	- see WW email for pipeline
+- understood rationale for variant calling
+	- potentially contaminated ED sample was already variant called using AF ref
+	- I will call my mRNA sample with AF ref, see if it matches the ED genomic SNP analysis
+- how I understand variant calling to work:	
+	- map reads from a sample to the reference genome
+	- identify sites for which there is more than one base at that position in the sequence
+	- record the base that is at that position
+- started the variant calling pipeline today
+	- made reference indices
+	- began PICARD ReorderSam
+	- used some inline bash commands from WW:
+		- for file in *.sorted.bam ; do PICARD ReorderSam R=~/*246.genomic.fa I=${file} O=${file/.sorted.bam/_reorder.bam} ; done
+	- still running as of 16:48
+
+NEXT:
+- continue reading about edgeR and GLMs
+- learn some more stats
+- continue on variant calling pipeline
+- figure out how to connect to work comp from home
+- read paper for meeting
