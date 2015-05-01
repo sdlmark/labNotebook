@@ -1,0 +1,28 @@
+01-05-2015
+==========
+
+TODAY:
+- PICARD ReorderSam is done (apparently took ~12 min)
+- talked with MB about stats & glms:
+	- can suggest good textbooks!
+	- explained glms
+	- also suggested permutations/bootstrapping
+- continued with variant calling pipeline for ED3092:
+	> for file in *reorder.bam ; do PICARD AddOrReplaceReadGroups
+	I=${file} O=${file/reorder.bam/readgroup.bam} LB=briggsae PL=illumina
+	PU=1 SM=${file/-*/} ; done
+	- apparently, this groups all reads into one new read group
+	- this will add a new line to the header (presumably, it is necessary
+	  to run GATK) with the LB, PL, PU, SM info
+	- ED14-1 finished in ~20 min.
+	- still running as of 17:03 (ED14-3)
+- began reading Roff
+	- left off Ch.2 p.13
+
+NEXT:
+- continue with variant calling on ED
+- continue reading about stats
+
+FUTURE:
+- read up on edgeR: good option?
+
