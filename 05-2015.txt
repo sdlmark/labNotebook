@@ -32,3 +32,16 @@ FUTURE:
 
 TODAY:
 - continue with variant calling pipeline
+	- replacing read groups done
+	- began sorting at 10:51
+	> for file in *readgroup.bam ; do PICARD SortSam I=${file}
+	O=${file/readgroup.bam/sortcoord.bam} ; done
+	- seems to be going very slowly from home... first 10 mil records
+	  processed in over 2 min
+	- had to abort:
+		- failed to write temporary files, no space left on device
+		- are temp files being stored locally?...
+		- try again at work to see if same problem occurs
+	- wrote to error files for WW to look at
+- updated ~/scripts/commandline.txt up to middle of variant calling
+
