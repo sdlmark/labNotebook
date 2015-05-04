@@ -45,3 +45,29 @@ TODAY:
 	- wrote to error files for WW to look at
 - updated ~/scripts/commandline.txt up to middle of variant calling
 
+
+04-05-2015
+==========
+
+TODAY:
+- talked to WW about temporary file problem; moved location of temp files to
+  somewhere with more space
+- tried same command as before at 10:35
+	- oops, forgot to logout first
+- tried again at 11:15
+	- seems to be working!
+- continued with variant calling pipeline:
+	- marked duplicates:
+	> for file in *sortcoord.bam ; do PICARD MarkDuplicates I=${file}
+	O=${file/sortcoord.bam/markdup.bam}
+M=${file/sortcoord.bam/markdup.metrics} 2>${file/sortcoord.bam/markdup.err} ;
+done
+- tried to run PICARD BuildBamIndex but failed
+	- not sure what it's for...
+
+NEXT:
+- ask WW about BuildBamIndex
+- start GATK variant calling pipeline
+- look up PICARD + GATK --> why?
+- get talk together for Thurs
+
