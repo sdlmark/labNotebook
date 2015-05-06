@@ -71,3 +71,36 @@ NEXT:
 - look up PICARD + GATK --> why?
 - get talk together for Thurs
 
+
+05-05-2015
+==========
+
+TODAY:
+- WW investigated BuildBamIndex problem
+	- looks like it might be solved with an update to Picard
+- yes, functional .bai files now made
+	- NB: you can't look at .bai files
+	- to determine whether they are "valid", look at size
+	- you'll know eventually whether or not they work once you go through
+	  the pipeline
+- started to run GATK
+	- decided to realign reads that don't align well	
+	- first, mark the intervals of bad alignment:
+	$ for file in *markdup.bam ; do GATK3 -T RealignerTargetCreator -R
+~/c_briggsae...genomic.fa -I ${file} -o ${file/markdup.bam/for_realign.int}
+2>${file/markdup.bam/realign.err} ; done
+	- GATK unhappy! will try just doing the variant calling without the
+	  realigning (which shouldn't really be necessary)
+- nope, GATK still unhappy
+	- doesn't like N in CIGAR strings
+	- how many reads have N in CIGAR?
+	- might be a problem specific to STAR
+	- however, GATK pipeline for RNA-seq recommends mapping with STAR
+	- WW trying out GATK3 -T SplitNCigarReads
+
+MEETING:
+- discussed Harrison paper
+- talked about conference-->make it broad, like 2 min talk
+- play with edgeR for general analyses
+- continue with variant calling
+
