@@ -104,3 +104,17 @@ MEETING:
 - play with edgeR for general analyses
 - continue with variant calling
 
+
+11-05-2015
+==========
+
+TODAY:
+- continuing with variant calling:
+	$ for file in *markdup.bam ; do GATK3 -T SplitNCigarReads -R
+~/c_briggsae.PRJNA10731.WS246.genomic.fa -I ${file} -o
+${file/markdup.bam/splitN.bam} -rf ReassignOneMappingQuality -RMQF 255 -RMQT
+60 -U ALLOW_N_CIGAR_READS 2>${file/markdup.bam/splitN.err} ; done
+	- this will break up reads that span exon-exon junctions where introns
+	  are replaced with N in CIGAR string
+	- reassigns quality score from 255 to 60 (STAR assigns 255 to good
+	  reads but this means nothing to GATK)
