@@ -118,3 +118,44 @@ ${file/markdup.bam/splitN.bam} -rf ReassignOneMappingQuality -RMQF 255 -RMQT
 	  are replaced with N in CIGAR string
 	- reassigns quality score from 255 to 60 (STAR assigns 255 to good
 	  reads but this means nothing to GATK)
+
+
+12-05-2015
+==========
+
+TODAY:
+- GATK3 SplitNCigarReads still running! EBT is very slow these days
+- *splitN.bam files look good, though
+- aim to run the Haplotyper on them today
+- made .csv of DESeq analysed genes that have a p-value less than 0.05
+	- this list will be different for all comparisons...
+
+MEETING:
+- talked about experimental design:
+	- because we have isogenic strains, cannot generalize results
+	- main motivation for using these strains is because these are common
+	  experimental strains--> will be used for future experiments
+	- isogenic strains eliminate within-strain variability, but also
+	  minimize generalizability
+	- another experiment that would be more generalizable could use 3 temp
+	  strains and 3 trop strains
+- point is not necessarily to find DE genes
+	- hard to draw conclusions about them, anyway
+	- perhaps think more descriptively, more exploratory
+	- ex. how different are the strains? in what ways do they differ? are
+	  these differences surprising? 
+	- how different are the worms at different temperatures?
+	- inferring why they might be different is a little harder, more of a
+	  stretch
+- talked about eQTLs:
+	- the point of these studies is to find location of loci responsible
+	  for differences in expression
+	- our data are more general
+
+NEXT:
+- run Haplotyper as per GATK RNA-seq pipeline
+- get stats on other pairwise comparisons, start list
+	- AFvHK14, AFvHK30
+	- AF14v20, AF20v30?
+- read up on edgeR
+
