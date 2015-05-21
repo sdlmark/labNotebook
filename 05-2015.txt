@@ -159,3 +159,45 @@ NEXT:
 	- AF14v20, AF20v30?
 - read up on edgeR
 
+
+13-05-2015
+==========
+
+TODAY:
+- SplitNCigarReads is finally done
+- start GATK haplotyper
+- finish outlining slides
+- started haplotyper, not sure that it works! vcf is much different from one
+  made by WW
+	- ran HaplotypeCaller on ED14-1_splitN.bam with parameter from online
+	  pipeline
+	- also ran VariantFiltration as per GATK website
+	- seems that many bases are omitted!
+- what's the difference between HaplotypeCaller and UnifiedGenotyper?
+
+
+20-05-2015
+==========
+
+TODAY:
+- figure out edgeR/differential expression stuff
+- figure out GATK stuff...perhaps run UnifiedGenotyper?
+- start analyses on pairwise comparisons for AF & HK
+- started running UnifiedGenotyper on *splitN.bam
+	- finished around 16:33
+	- seems OK, looks like vcfs made by WW
+
+
+21-05-2015
+==========
+
+TODAY:
+- keep working on edgeR
+	- figure out the contrasts...
+	- getting closer, but not there yet
+		- working on how to specify interactions with model.matrix
+- talk to WW re UnifiedGenotyper/Haplotyper
+	- said that UG is enough for my purposes
+	- now I have to compare them to .vcf of other strains
+		- same groups should have same ALT bases
+
