@@ -201,3 +201,29 @@ TODAY:
 	- now I have to compare them to .vcf of other strains
 		- same groups should have same ALT bases
 
+
+22-05-2015
+==========
+
+TODAY:
+- keep working on edgeR
+- ask WW for .vcf files 
+
+NEXT:
+- New Gameplan! 
+	- focus on pairwise comparisons between AF & HK at each temp
+	- at each temp, determine whether sig
+	- if sig, whether up or down (relative to AF)
+	- then, look at patterns for each gene (ex down down up)
+	- group genes according to pattern 
+- also:
+	- email committee meeting document by Weds aft. at the latest
+
+TOMORROW:
+- get lists of pairwise sig genes between AF&HK at each temp
+	- filtered, normalized, estimate dispersions
+	- use makeContrasts method in edgeR
+- then:
+	- make table of gene 14 20 30, fill with up down sig
+	- group
+
