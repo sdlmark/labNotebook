@@ -227,3 +227,9 @@ TOMORROW:
 	- make table of gene 14 20 30, fill with up down sig
 	- group
 
+
+23-05-2015
+==========
+
+TODAY:
+- make pairwise comparisons (via makeContrasts in edgeR)
