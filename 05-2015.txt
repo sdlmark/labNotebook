@@ -233,3 +233,74 @@ TOMORROW:
 
 TODAY:
 - make pairwise comparisons (via makeContrasts in edgeR)
+
+
+25-05-2015
+==========
+
+YESTERDAY:
+- finished making file with sig/up/down values for each gene at each temp
+	- AH.updown.txt
+- tried to classify each pattern (27) with a letter using awk & bash
+	- not working as a bash script...
+
+TODAY:
+- figure out how to classify with awk
+	- done. problem was with \n before $1 file input
+- reschedule AC meeting
+- make outline for committee meeting
+- write script to give pattern that matches corresponding letter
+
+NOTES:
+- After pairwise analysis with edgeR, HK with respect to AF:
+	- total genes post filtering = 16155
+	- genes with NS expr across temps = 4990
+	- genes sig expr in at least one temp = 11165 (0.69)
+	- genes sig expr all temps = 1118 (0.069)
+	- genes downreg at all temps = 577
+	- genes upreg at all temps = 453
+	- A = 2743
+	- B = 2382
+	- C = 428
+	- D = 1269
+	- E = 26
+	- F = 359
+	- G = 146
+	- H = 661
+	- I = 175
+	- J = 221
+	- K = 15
+	- L = 71
+	- M = 453
+	- N = 3
+	- O = 6
+	- P = 2
+	- Q = 9
+	- R = 257
+	- S = 196
+	- T = 1000
+	- U = 17
+	- V = 17
+	- W = 0
+	- X = 85
+	- Y = 57
+	- Z = 577
+- 0.459 of DE genes show DE at 30
+- genes that show DE only at 30 (A+B) = 0.459
+- genes that show DE only at 20 (C+F) = 0.0704
+- genes that show DE only at 14 (I+R) = 0.0387
+- genes that show DE at all temps (M+N+P+Q+V+W+Y+Z) = 0.100
+	- prop of these that are not all up or all down across temps = 0.0787
+	- prop of these that are all up or all down across temps (M+Z) = 0.921
+- genes that show DE at 14 & 30 but not 20 (J+K+S+T) = 
+- moved analysis into R script, visualizingPatterns2.txt
+	- 90% genes fall into patterns up to Z
+	- 95% genes fall into patterns up to V
+	- 75% genes fall into patterns up to M
+	- 46% genes fall into either A or B pattern
+
+NEXT:
+- keep looking at pattern data?
+- FGS, start writing the committee meeting report!
+	- 
+	 
