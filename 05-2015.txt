@@ -263,7 +263,7 @@ NOTES:
 	- B = 2382
 	- C = 428
 	- D = 1269
-	- E = 26
+	- E = 16
 	- F = 359
 	- G = 146
 	- H = 661
@@ -302,5 +302,21 @@ NOTES:
 NEXT:
 - keep looking at pattern data?
 - FGS, start writing the committee meeting report!
-	- 
-	 
+	
+
+26-05-2015
+==========
+
+TODAY:
+- write committee meeting report draft
+- think more about what I can do with the pattern data
+	- ex. organize by temp, increase/decrease, etc.  
+	
+
+27-05-2015
+==========
+
+TODAY:
+- finish committee meeting report draft
+- send report (by 15:30)
+- start slides for committee meeting 
