@@ -203,3 +203,13 @@ TODAY:
 		- main effect temp: 5285
 - visualize exon stuff
 	- per chromosome, what is the distribution of exon number?
+
+NEXT:
+- think about direction: what do I want to do next?
+	- ex. position? classification of proteins?
+	- think about big q; what is important?
+- get lists of stats for sig main effects
+- make a reading list!
+	- make a schedule
+- talk to W about SNP neighbour network
+- find out how to get GO terms: ex. interpro
