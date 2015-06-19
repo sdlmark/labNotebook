@@ -1,0 +1,205 @@
+08-06-2015
+==========
+
+
+TODAY:
+- work on GLMs with edgeR
+- read up on stats
+- look at temp-dep expr paper
+- look at scinet workshop
+- email SH person
+- read HG proposal
+
+
+09-06-2015
+==========
+
+TODAY:
+- read alt splicing paper
+- register for scinet workshop?
+- keep reading stats
+- prep for meeting
+- look at .vcfs for HK104, ED3092
+- think about QC for reads
+
+NEXT:
+- clean up disk!
+
+
+10-06-2015
+==========
+
+TODAY:
+- talk about GLMs with RG
+- work on variant calling
+	- ignore positions with multiple bases (too hard to compare)
+
+NEXT:
+- go over edgeR stuff with RG
+- work on variant calling
+	- what's up with repeated bases with AN=etc?
+	- how can I exclude them?
+
+
+12-06-2015
+==========
+
+TODAY:
+- look at sig genes
+	- identify genes with significant interaction
+	- identify genes with significant main effect of strain
+	- identify genes with significant main effect of temperature
+		- which genes show main effect of strain only? (i.e. no
+		  interaction)
+		- which genes show main effect of temp only?
+	- total genes: 16155
+	- genes with sig int: 6267
+	- genes with main effect strain: 1204
+	- genes with main effect temp: 2881
+	- genes with sig int, sig strain or temp: 4023
+	- genes with sig int, sig strain and temp: 1051
+	- genes with sig int, no sig strain or temp: 2244
+
+
+16-06-2015
+==========
+
+MEETING:
+- variant calling
+	- make a neighbour network using SNPs
+	- ask W
+- allele-specific expression
+	- looking at F1s to reveal expression biases
+- visualize results of edgeR
+- look into clustering
+	- ex. k-means clustering
+- will discuss paper next time
+
+NOTES:
+- edgeR results
+	- genes without sig int: 9888
+		- genes with sig strain: 1204
+		- genes with sig temp: 2881
+		- genes with sig strain & temp: 537
+		- genes with no sig at all: 6340
+	- genes with sig int: 6267
+		- genes with sig strain: 1957
+		- genes with sig temp: 3117
+		- genes with sig strain & temp: 1051
+		- genes with no sig at all: 2244
+
+
+17-06-2015
+==========
+
+TODAY:
+- visualize edgeR results 
+	- RG says not to bother dividing sig int
+	- rather, increase FDR and see if the genes with no sig int at all
+	  decreases
+	- genes with sig int, FDR 0.1: 7909
+		- genes with sig strain: 2684
+		- genes with sig temp: 4309
+		- genes with sig strain & temp: 1577
+		- genes with no sig at all: 2493
+	- genes with sig int, FDR 0.15: 9179
+		- genes with sig strain: 3413
+		- genes with sig temp: 5248
+		- genes with sig strain & temp: 2072
+		- genes with no sig at all: 2590
+	- genes with sig int, FDR 0.2: 10166
+		- genes with sig strain: 4101
+		- genes with sig temp: 6059
+		- genes with sig strain & temp: 2523
+		- genes with no sig at all: 2529
+- think about overarching q
+
+NEXT:
+- send edgeR notes to RG
+- think about making some graphs...
+	- ex. exon number? gene length?
+- ask W about SNP neighbour network method
+- read up on FDRs
+- read up on clustering (k-means, fuzzy-c)
+
+
+18-06-2015
+==========
+
+TODAY:
+- read about FDR
+- email PT
+- think about what kinds of things can be extracted from sig int lists
+- email RG edgeR notes
+- talk to W about SNP neighbour network
+- research clustering methods
+- find out how to get a table of normalized counts from edgeR/DESeq
+	- cannot use normalized count table from edgeR
+		- adjusts library size to normalize gene 'abundance' across
+		  samples
+	- sizeFactors() in DESeq transforms raw reads so they can be compared 
+		- ~/AFHK.mrna.counts.table 
+- genes with significant interaction:
+	- on chrom I: 893
+	- on chrom II: 1014
+	- on chrom III: 755
+	- on chrom IV: 964
+	- on chrom V: 1378
+	- on chrom X: 938
+	- do chi-square test? prob not...
+- also counted exons per gene of genes with sig int, separated by chromosome
+	- problem! numbers do not add up...
+	- *random = 30
+	- un = 90
+	- still missing 700 genes! 
+		- might have to do with grep pattern; only grabs multiples
+		- try: grep " II \| II" tomorrow
+
+NEXT:
+- re-run DE analysis without HK30-3; compare results
+- redo test for main effects on genes without interaction
+- find out how to do GO analysis
+- talk to W re SNP neighbour network
+- visualize exon stuff
+
+
+19-06-2015
+==========
+
+TODAY:
+- redo test for main effects without sig interaction genes
+	- see if there is a difference in numbers, genes
+- what is GO analysis?
+- re-count exon stuff!!
+	- make sure they add up to 6267!
+	- chrom I: 935
+	- chrom II: 1043
+	- chrom III: 783
+	- chrom IV: 993
+	- chrom V: 1421
+	- chrom X: 968
+	- un: 94
+	- *random: 30 
+	- woohoo! it adds up
+- wait: *random means that it comes from a fragment that belongs somewhere on
+  the chromosome, but not sure precisely where
+	- recount to include random
+		- I: 935 (no random)
+		- II: 1043 (no random)
+		- III: 795
+		- IV: 994
+		- V: 1437
+		- X: 969
+		- un: 94
+- test for main effects among genes that are not significant for interaction
+	- make a subset of genes that includes only those that did not show
+	  interaction
+		- how to do this in R?
+	- make a new model that does not contain the interaction
+	- test for strain, temp
+	- is the list the same? should find more genes...
+		- way more genes! this can't be true...
+		- main effect strain: 4188
+		- main effect temp: 5285
+- visualize exon stuff
+	- per chromosome, what is the distribution of exon number?
