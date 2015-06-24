@@ -213,3 +213,132 @@ NEXT:
 	- make a schedule
 - talk to W about SNP neighbour network
 - find out how to get GO terms: ex. interpro
+
+
+22-06-2015
+==========
+
+TODAY:
+- look at HR's emails; email HR
+- email W re SNP neighbour network
+- reading schedule
+- read
+- think of what to do with sig int list
+	- classify further?
+	- what sorts of things do people measure re genes in genomes
+- reread JC paper
+- talk to MG re subsetting in R
+
+READING:
+- try reading 2 papers per day
+	- one for methods & exptl design
+	- one review (for concepts)
+- METHODS: clustering gene expr patterns
+	- Thomas et al. 2014, G3:
+		- characterizing gene expr along Dm gut
+		- clustered via fuzzy-c means, with prog MFuzz
+			- plots are norm counts (FPKM?) vs. gut section
+		- does not say what sample size was
+			- perhaps used clustering a/o DE because no reps
+- REVIEW: inferring evo gene reg from inter sp comp.
+	- Romero et al. 2012, NatRevGen:
+		- try to identify genes undergoing stabilizing, directional
+		  sel
+		- look for genes that have low var within sp, high var btw
+			- potential target for dir sel
+		- however could also be explained by sp env diff
+		- diff tissues show diff kinds sel
+		- no strong evidence for effect of alt spli on inter sp gene
+		  reg (at least in primates)
+		- can only make correlations between reg elements (ex. TFs,
+		  H3K4me3, miRNAs) and gene expr levels
+- make shortlist of papers to read soon:
+	- finish review from today
+	- Llinas 2006 (WGT Plasmodium)
+	- Stapely 2010 (Adaptation genomics)
+	- Whitehead & Crawford 2006 (Var gene expr)
+	- Landry 2005 (Compensatory cis-trans reg hybrids Dm)
+
+
+23-06-2015
+==========
+
+TODAY:
+- read
+- review JC paper
+- prep for meeting
+- look at sig DE data
+
+READING:
+- REVIEW: inferring evo gene reg from inter sp comp. cont'd.
+	- Romero et al. 2012, NatRevGen:
+		- very difficult to establish causal relationship bw change in
+		  gene reg and phenotype
+		- can only be validated through experimentation
+		- some examples of disruption of upstream region resulting in
+		  phenotype
+		- this review mainly focused on primates
+- METHODS: characterizing gene expr & inferring reg in Dm at different temps
+	- Chen, Nolte & Schlotterer 2015, MBE:
+		- wanted to understand gene expr plasticity with temp
+		- classified reaction norms for Dm at 4 temp
+		- identified 3 components of plasticity: sum of change
+		  (magnitude?), direction (up or down), curvature (lin v quad)
+		- chose 5 reg factors; tested how well they predicted 3
+		  measures of plasticity
+
+MEETING:
+- adaptive phenotype could be result of genes that show effect of strain only
+  but not temp only (these are plastic and would have had their expr patterns
+defined prior to local adaptation to different environments)
+- list of genomic things to look at and collect data about
+- identify which genes with main effects have main effects in both strain &
+  temp
+
+
+24-06-2015
+==========
+
+TODAY:
+- read
+- make list of tasks & how they connect
+	- add: count how many DE genes have SNPs
+	- add: what proportion of DE genes have regulatory function (TFs,
+	  small RNA)   
+- work on ED ID
+
+READING:
+- REVIEW: critique of claim that morpho adaptation happens via cis-reg evolution
+	- Hoekstra & Coyne 2007, Evolution:
+		- define regulatory mutations as those that happen in noncoding
+		  regions; mut in coding = structural
+		- empirical evidence does not show direct link between
+		  genotype and phenotype, focuses on loss of function
+		- most mutations that lead to adaptive phenotypes are in
+		  coding regions (admit ascertainment bias)
+		- other things operate in a modular fashion, not just gene reg
+		  (ex. gene duplication, alt spli); can also mitigate
+		  pleiotropic effects
+		- important! just because something is likely to be
+		  subject to weaker selection doesn't mean it will fix faster;
+		  also depends on likelihood that mutation will occur, and its
+		  selection coefficient 
+
+NOTES:
+- re-did analysis of genes with no sig interaction:
+	- see noint_maineffect_test.R
+	- genes with main effect strain: 4188
+	- genes with main effect temp: 5285
+	- genes with main effect strain & temp: 2674
+	- genes with main effect strain only: 1514
+	- genes with main effect temp only: 2611
+	- genes with no sig main effect or interaction: 3089
+
+TOMORROW:
+- drop by career centre, make appointment
+- email HR
+- email J re data incubator
+- make prop genes on chromo plots for main effects DE genes
+- make a future map
+- read
+
