@@ -342,3 +342,81 @@ TOMORROW:
 - make a future map
 - read
 
+
+25-06-2015
+==========
+
+TODAY:
+- read 
+- go to career centre
+- email JP
+- prop sig DE genes plots for main effects
+- future map
+
+READING:
+- REVIEW: how HT data are helping identify cis-reg effects on phenotypic var
+	- Pastinen 2010, NatRevGen:
+		- gave a brief description of what allele-spec expr is and why
+		  it's important
+		- can uncover cis-reg activity among genotypes that show sim
+		  amounts of expr (gives ex of negative feedback)
+		- other than that, mostly talks about methods and results in
+		  humans
+- REVIEW: how NGS can help identify genes underlying adaptation
+	- Stapley et al. 2010, TREE:
+		- focus is mainly on non-model organisms
+		- NGS can detect loci of small effect better than QTL mapping
+		- can also identify loci of adaptation, structural variation
+		- can address source of adaptive variation
+		- good list of interesting papers
+
+NOTES:
+- command for finding matching genes from list of sig genes, counting exons
+  and listing chromosome:
+$ while read line ; do exons=`grep -c $line ~/*exon.gff3` ; chrom=`grep $line
+~/*exon.gff3 | awk '{print $1}' -` ; echo $line $exons $chrom ; done <
+strain_eff.list | less
+- for genes with no int, main effect strain only (1514):
+	- I: 201 + 3 = 204
+	- II: 216 + 8 = 224
+	- III: 200 + 1 = 201
+	- IV: 228 + 8 = 236
+	- V: 271 + 9 = 280
+	- X: 340 + 3 = 343
+	- un: 24 + 2 = 26
+	- all genes present and accounted for!
+- for genes with no int, main effect temp only (2611):
+	- I: 453 + 14 = 467
+	- II: 403 + 3 = 406
+	- III: 423 + 4 = 427
+	- IV: 441 + 5 = 446
+	- V: 465 + 11 = 476
+	- X: 343 + 8 = 351
+	- un: 38 
+	- all genes present and accounted for!
+- for genes with no int, main effect strain & temp (2674):
+	- I: 439 + 6 = 445
+	- II: 410 + 9 = 419
+	- III: 388 + 7 = 395
+	- IV: 412 + 7 = 419
+	- V: 516 + 14 = 530
+	- X: 409 + 6 = 415
+	- un: 50 + 1 = 51
+	- all genes present and accounted for!
+- total # genes on each chromosome, excluding pseudogenes (23277):
+	- I: 3316
+	- II: 3526
+	- III: 3134
+	- IV: 3492
+	- V: 5092
+	- X: 4039
+	- un: 678
+	- all genes present and accounted for!
+
+TOMORROW:
+- make appt with career centre re LinkedIn, job prospects MSc vs. PhD
+- go to Labour Market workshop
+- think of another thing to measure with data
+- make a plan for learning stats?
+- read
+- future map
