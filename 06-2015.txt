@@ -420,3 +420,139 @@ TOMORROW:
 - make a plan for learning stats?
 - read
 - future map
+
+
+26-06-2015
+==========
+
+TODAY:
+- talk to KL re decision deadline
+- email HR
+- READING:
+- REVIEW: 
+	- Wray 2007, NatRevGen:
+		- not productive to focus on how many reg vs. coding mutations
+		  affect phenotype, rather focus on how the consequences are
+		  qualitatively different
+		- cis-regs more likely to result in certain phenotypes?
+			- ex. dynamic phntp that change with time
+		- selection acts differently on cis-reg mutations?
+			- cis-reg are allele-spec, so sel acts on
+			  heterozygotes; not as many coding mut are all-spec
+			- modular nature of cis-reg means that phntp of mut
+			  can be localized in space & time; coding mut affect
+			  all proteins everywhere
+
+NOTES:
+- VCF processing:
+	- make alignments (FASTA) of sites for which there are ALTs in at
+	  least one of HK or ED references
+		- should have AF, ED, HK, and ED samples aligned
+	- choose alignment program
+	- try: get a list of sites (positions) at which there is at least one
+	  ALT in ED or HK
+	- get base at that position for all vcfs: ALT, if none, REF
+	- align with alignment program
+	- feed alignment to splitstree
+	- analyse tree
+
+NEXT:
+- meet with career counsellor
+- meet with AC
+- start VCF processing
+- read
+- read clustering pdf
+- think about what might go into a paper
+	- description-->what?
+	- functional inference?
+	- small RNA stuff? 
+
+
+29-06-2015
+==========
+- think about cc meeting
+- start vcf processing
+- read
+- read about clustering
+- ideas
+- ask KL about deadline
+	- deadline is early August (Aug 15)
+	- I have to give another committee meeting!
+
+TODAY:
+- processing vcfs for splitstree:
+	- pasted vcfs from WW, got ones that have ALT in at least one sample
+	- not working! resulting list seems to be truncated
+		- nothing past chrI!
+		- without indels, 2336108
+		- witn indels, 2677181
+	- talked to WW, says I should only get sites where there is info for
+	  all samples
+	- new approach:
+		- identify bases in ED3092 which are not indels and have an
+		  ALT--> 454050 bases
+		- use this list to grab bases in other vcfs that are also not
+		  indels and have ALTs 
+		- keep doing this for each sample until there is a whittled
+		  down list of sites at which all samples have ALT & no indel
+		$ grep -v \## ED3092Nai_RiCr2_ploidy1.vcf | cut -f1,2,4,5 - |
+		  awk '{if(length($3)==1 && length($4)==1) print $0}' - |
+		  awk '$4!="." - > edww.snp.list
+	- PROBLEM!
+		- it's the space! 'chrI 574' is not working with grep
+		- crap. WW says I have to write a script :(	
+
+NEXT:
+- redo python dictionary exercise
+- look at nested dictionaries
+- read
+- think about meeting
+- make files for dictionary making
+
+
+30-06-2015
+==========
+
+MEETING:
+- DE chrom graph: 
+	- express as counts
+	- maybe don't stack
+- re PhD:
+	- willing to have a mix of projects in order to learn a variety of
+	  computational skills
+	- discussed workshop attendance, visiting other universities
+	- not a fan of co-advisory
+	- should attend lab meetings of other groups
+	- PhD is about learning how to learn-->focus on gaining independence
+	- make a list of specific skills I want to learn
+		- what types of data?
+		- what approaches?
+	- statistical genetics class
+		- what other sorts of things do I want to learn?
+- re mRNA data set:
+	- to work on wrapping it up:	
+		- think of relevant ways to describe the data
+		- then think about connecting the things observed (ex. GxE
+		  genes with polymorphism in promoters, dN/dS)
+
+NOTES:
+- re selecting genes for designing primers
+	- you want to design primers that bind to orthologous genes in 2
+	  species, but you want these genes to be of different length to be
+	  able to distinguish them via gel electrophoresis
+	- so you should look for genes in which the exons are the same between
+	  species, but the intron length is different
+	- the difference in intron lengths should be at least 100 bp
+	  different because any smaller is hard to see on a gel
+	- for a simple first pass, consider only the difference between first
+	  introns of genes
+	- also, you need to retain information about which exons are involved
+	  because these are what the primers will ultimately bind to
+	- apparently, when the gff says mRNA it includes introns?
+
+TOMORROW:
+- start list of skills
+- email AM
+- email JP
+- work on primer thing
+- do python dict exercise
