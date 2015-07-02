@@ -1,0 +1,53 @@
+02-07-2015
+==========
+
+TODAY:
+- make list of skills
+- make daily schedule
+- email AM
+- email JP
+- find stats & programming tutorial
+- read
+- work on primer thing
+- work on ED thing
+
+READING:
+- Anderson et al. 2013, Mol Ecol: 
+	- looking at antagonistic pleiotropy vs. conditional neutrality in
+	  local adaptation
+	- antagonistic pleiotropy:
+		- pleiotropy: one gene affects more than one trait
+		- AP: one gene affects a trait that is detrimental and another
+		  that is adaptive
+		- AP in local adaptation: trait not favoured in foreign env;
+		  maladaptive trait exposed
+	- conditional neutrality:
+		- alleles favoured in one env but neutral in another
+	- many studies favour conditional neutrality hypothesis
+		- but this may be an artifact 
+	- developed a new protocol to distinguish AP from CN in QTLxE
+	  interactions
+	- RILs:
+		- backcrossing hybrids to parent to create small part of one
+		 parent's genome in the background of the other's
+		- then phenotype these RILs to determine association of that
+		  region with a particular trait
+	- made a tool to analyse CN vs. AP: CNAP
+		- generates null distributions of allele frequency if genotype
+		  does not affect fitness
+		- not really sure how it distinguishes bw CN and AP...
+
+ED IDENTITY CRISIS:
+	- bash script for getting bases with ALT and no indels (altlist.sh)
+	$ for file in *uniGen* ; do bash altlist.sh $file ; done
+	- automated it to run through all *uniGen* files
+		- ED genomic: 454050 SNPs
+		- HK genomic, B: 964805
+		- HK genomic, D: 761531
+
+NEXT:
+- read about clustering
+- continue with stuff
+- 
+ 
+	
