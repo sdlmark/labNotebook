@@ -134,4 +134,6 @@ ED ID CRISIS:
 - hkd: 761531
 	- diff between hkb & hkd...important? prob should find out...
 	- thankfully no. sites in mRNA are fewer than genomic!
-			
+
+NEXT:
+- think about how to compile these data into a fasta file			
