@@ -50,4 +50,88 @@ NEXT:
 - continue with stuff
 - 
  
-	
+
+03-07-2015
+==========
+
+TODAY:
+- continue list of skills
+- stats tutorial
+- python
+- read about clustering
+- thinking
+
+READING:
+- Liu & Si 2014, book chapter: Cluster Analysis of RNA-seq Data
+	- microarray data is continuous and thus can be modeled with norm dist
+	- RNA-seq data is discrete and right-skewed (many genes have low expr)
+	- 2 methods: transform counts so they are closer to norm dist, or work
+	  directly with data using appropriate distributions
+		- 1st method: RPKM
+			- scales counts for one gene in one rep one treat by
+			  total counts for all genes in sample and the length
+			  of the gene	
+			- i.e. counts are scaled by sequencing depth and gene
+			  length (2 factors of bias)
+			- then log-transform
+				- reduces skew; take log of both var
+				- good for data that span several ord of mag
+				- good for multiplicative data ex. change is
+				  dependent on how much you start with
+			- this makes data not discrete and closer to normal
+			- can apply clustering methods for norm dist like
+			  Euclidean distance, k-means clustering
+		- 2nd method: applying discrete distributions (variance
+		  stabilizing methods)
+			- Poisson only estimates technical variance
+			- Negative binomial is more flexible with variance
+			  because of extra dispersion parameter that
+			  incorporates biological variance
+	- normalization of count data
+		- involves estimating normalization factor that accounts for
+		  biases like sequencing depth
+		- DESeq: takes ratio of gene count and geometric mean, then
+		  takes median
+			- geometric mean: multiply all values then take the
+			  root of the number of samples
+		- edgeR: uses Trimmed Mean of M values
+		- both are good
+	- clustering
+		- first take the mean of norm values over replicates for each
+		  treatment
+		- determine dissimilarity between samples
+			- Euclidean distance: geometric distance (sum of
+			  squares between 2 samples)
+			- Pearson correlation (1 minus correlation)
+			- both are sensitive to skew, might not be good for
+			  non-normal data
+			- therefore best used with transformed data i.e. RPKM
+		- k-means
+			- starts with k separate groups and assigning genes to
+			  groups such that squared diff from mean is minimized
+			- mean for each group calculated with addition of each
+			  sample? (iterative; gets better and better)
+			- should start from different randomizations several
+			  times (first group assignment is random)
+			- fast, but downside is k must be chosen first
+			- diff algorithms may arrive at diff ks
+			- perhaps run data with a variety of ks
+
+PRIMER DESIGN: off the hook!
+
+ED ID CRISIS:
+- ED14-1: 141387
+- ED14-2: 140173
+- ED14-3: 153805
+- ED20-1: 129461
+- ED20-2: 165155
+- ED20-3: 162319
+- ED30-1: 158773
+- ED30-2: 194446
+- ED30-3: 159869
+- edww: 454050
+- hkb: 964805
+- hkd: 761531
+	- diff between hkb & hkd...important? prob should find out...
+	- thankfully no. sites in mRNA are fewer than genomic!
+			
