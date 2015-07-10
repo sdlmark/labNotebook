@@ -64,7 +64,7 @@ TODAY:
 READING:
 - Liu & Si 2014, book chapter: Cluster Analysis of RNA-seq Data
 	- microarray data is continuous and thus can be modeled with norm dist
-	- RNA-seq data is discrete and right-skewed (many genes have low expr)
+	- RNA-seq data is discrete and left-skewed (many genes have low expr)
 	- 2 methods: transform counts so they are closer to norm dist, or work
 	  directly with data using appropriate distributions
 		- 1st method: RPKM
@@ -94,6 +94,8 @@ READING:
 		  takes median
 			- geometric mean: multiply all values then take the
 			  root of the number of samples
+				- good for describing central tendencies of
+				  things with different orders of magnitude
 		- edgeR: uses Trimmed Mean of M values
 		- both are good
 	- clustering
@@ -137,3 +139,217 @@ ED ID CRISIS:
 
 NEXT:
 - think about how to compile these data into a fasta file			
+
+
+06-07-2015
+==========
+
+TODAY:
+- go over cluster notes; read more
+- r tutorial
+- work on ED ID (python dictionary refresh)
+- look at Tophat/Mazurka ref from AC
+- investigate GOrilla
+
+READING: Liu & Si Cluster Analysis continued
+	- Hierarchical Clustering
+		- groups items based on dissimilarity; least dissimilar groups
+		  go together
+		- produces a tree
+		- agglomerative (bottom-up) and divisive: agg starts with
+		  indivduals and works up to whole data set
+		- hierarchical performs well with RNA-seq data; so does agg
+		  (div is too comp intensive)
+		- more flexible than k-means because different levels of tree
+		  give different number of k (ex. higher = fewer groups)
+		- best way to define dissimilarity is with average linkage
+			- considers all data points, more consistent
+	- NB: previous methods do well with data that are continuous/normally distributed
+	- Clustering count data
+		- RNA-seq data not norm dist, genes with low/no counts makes
+		  problems for log transform
+		- Poisson Dissimilarity
+			- usually for sample-based clustering (LRT bw vectors)
+		- Model-based clustering
+			- use expectation-maximization (EM) algorithm to
+			  estimate model parameters
+			- should be initialized (improves performance)
+			- negative binomial requires an extra dispersion
+			  parameter be estimated for each gene
+			- to choose number k partitions, use AIC, where lower
+			  AIC indicates a better model
+		- Hybrid-Hierarchical clustering
+			- combo of hierarchical and model-based
+			- hierarchical is good because you don't have to be
+			  strict with choosing a k
+			- however, it's too comp intensive; so combined with
+			  model-based methods
+			- k clusters chosen with model-based methods,
+			  clustering performed with hierarchical methods
+	- try HH clustering with MBCluster.Seq package
+		- steps outlined in chapter
+
+NOTES:
+- decided to try re-analysing mRNA data with DESeq
+- if I'm already using DESeq to normalize data, maybe I should be consistent
+	- it looks like it might be complicated...
+- anyway, it was suggested in that clustering chapter that I only use counts
+  for genes for which there is DE
+	- also, you are supposed to use counts as they are i.e. not normalized
+	- so maybe just get the raw counts for genes with DE sig int from edgeR 
+	  and try to cluster those
+- attempting to use MBCluster.Seq
+	- ran into a problem at Cluster.RNASeq step...
+	- try from the beginning with only DE sig int raw gene counts
+	- trying multiple things:
+		- eliminating row names-->nope
+		- read in data as.matrix instead of as.data.frame-->nope :(
+- argh! this is frustrating. I need to find more software for clustering
+	- WW says just normalize with RPKM and compare patterns but I don't
+	  know if this is solid
+		- what if you thought it was increasing across all temps but
+		  the increase between 20 and 30 was small? I think you need
+		  statistics...
+
+NEXT:
+- try mfuzz 
+- get on ED ID!
+- email GD
+- AC meeting
+- check out clustering stuff on Bioconductor
+- think (ex. about what I want these data to tell me)
+
+
+07-07-2015
+==========
+
+TODAY:
+- email GD
+- try mfuzz
+- read
+- look at Bioconductor clustering stuff
+- AC meeting:
+	- SNP idea?
+	- PhD transfer process-->meeting?
+	- skills goals
+
+THOUGHTS:
+- contrast SNP location & number among effect groups?
+- would expect SNPs in temp effect only genes to be coding, synonymous, very
+  low number
+	- because there is no diff in genotype in response to temp
+- would expect more SNPs in genotype effect only genes, perhaps coding and
+  nonsynonymous
+	- because there is diff in genotype response regardless of temp
+- would expect SNPs in GxE genes to be in regulatory regions, like upstream,
+  5' and 3', splice sites, introns
+	- because response depends on genotype and temp
+
+READING: soft clustering software for microarray data
+	- Kumar & Futschik 2007, Bioinformation:
+		- using soft clustering, genes can belong to different
+		  clusters
+		- supposedly improves robustness to noise and identification
+		  of regulatory regions (microarray data is supposedly
+		  inherently noisy)
+		- mfuzz uses fuzzy c-means algorithm
+		- has graded cluster membership (from 0 to 1) as opposed to
+		  all or nothing (0 or 1) as in hard clustering (k-means)
+		- thus you can see which genes have the strongest association
+		  to a cluster, cluster cores are defined by strength
+		- you have to choose the number of clusters and the
+		  fuzzification parameter, m
+- how to select a value for the fuzzification parameter, m:
+	- Dembele & Kastner 2003, Bioinformatics:
+		- too mathy for me at the moment...
+
+NOTES:
+- plan to normalize counts by RPKM seems complicated...
+	- involves using Cuffquant and Cuffnorm in Cufflinks
+- just do it on my own in R?
+
+MEETING:
+- should aim for 5-7 chapters in PhD
+- to stay on track:
+	- make lists of what you want to include in a paper
+		- ex. what figures? how can you make these figures? what do
+		  you need to do?
+		- what conclusions? what do you need to do in order to arrive
+		  at these conclusions?
+- trying to move more towards more substantial papers
+	- involve a significant contribution to knowledge about biology &
+	  evolution etc.
+- mRNA & small RNA probably would count for 2 chapters
+- SNPs would most likely be in non-coding regions
+	- can 5' UTR be distinguished in gff?
+- re receipt: print reimbursement form, get AC signature
+- GxE and small RNA are what are special about these data
+
+
+08-07-2015
+==========
+
+TODAY:
+- email NP, SW re transfer meeting
+- think about meeting document
+- AM lab meeting
+- begin script for ED ID
+- stats in R class
+- look into rlog() in DESeq2
+
+
+NOTES:
+- GWAS: looking at individuals from wild to associate genotype with phenotype
+	- assumes lots of recombination
+	- more or less random combos of genes
+- RILs & NILs
+	- isolating genotypes
+
+
+09-07-2015
+==========
+
+TODAY:
+- read
+- meet with potential undergrad
+- script for ED ID
+- stats in R
+- ask about work study pay
+
+NOTES:
+- making dictionaries for ED ID:	
+	- keys need to be unique! so if you use chrom as a key, you only get a
+	  handful of keys
+	- using pos is better but not good enough because the there are
+	  identical pos on different chrom
+	- possibly: could amalgamate chrom and pos into a single character
+		- ex. {I_1453:('T', 'A')}
+
+
+10-07-2015
+=========
+
+TODAY:
+- ask about work study pay
+- read
+- script for ED ID
+- stats in R
+
+
+READING: Evoultion of phenotypic plasticity and GxE
+	- Via & Lande 1985, Evolution:
+		- genetic variation in phenotypic plasticity = GxE
+		- outline models in which phenotypic plasticity could evolve
+			- under hard & soft selection
+
+NOTES:
+- re work study pay: allocate 42 hours on form for July, due 20 July
+	- get it signed by JT or email approval by AC
+- worked on ED ID script
+	- getting there...still stuck.
+	- using set(dict1).intersection(set(dict2)) to get common keys
+	- not sure how to do this iteratively, or for nested dicts
+
+NEXT:
+- email WW, MB 
+- speak with M from AM lab re clustering
